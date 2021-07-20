@@ -209,8 +209,10 @@ type Config struct {
 	MONGO_DB_NAME      string
 
 	TM_API_KEY          string
-	UPDATE_AMMO_API_KEY string
+
+	TC_API_KEY string
+
 	VERCEL_ENV          string
 }
 
-const APIKeyHeader = "X-Update-Ammo-API-Key"
+const APIKeyHeader = "X-Tarkov-Charts-API-Key"
