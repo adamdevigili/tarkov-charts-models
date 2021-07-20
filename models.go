@@ -1,5 +1,7 @@
 package models
 
+import "time"
+
 type Ammo struct {
 	Caliber     string `json:"caliber"`
 	Name        string `json:"name"`
