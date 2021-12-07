@@ -12,10 +12,11 @@ type Ammo struct {
 
 // ------- tarkov-tools graphQL models -------
 type Item struct {
-	ID        string `json:"id"`
-	Name      string `json:"name"`
-	ShortName string `json:"shortName"`
-	IconLink  string `json:"iconLink"`
+	ID          string `json:"id"`
+	Name        string `json:"name"`
+	ShortName   string `json:"shortName"`
+	IconLink    string `json:"iconLink"`
+	Avg24hPrice int    `json:avg24hPrice`
 }
 
 type Data struct {
@@ -198,6 +199,34 @@ type BSGItem struct {
 	Proto  string `mapstructure:"_proto"`
 }
 
+// ------- TarkovTracker/tarkovdata ammo models -------
+
+type TarkovTrackerAmmo struct {
+	ID              string     `json:"id"`
+	Name            string     `json:"name"`
+	ShortName       string     `json:"shortName"`
+	Weight          float64    `json:"weight"`
+	Caliber         string     `json:"caliber"`
+	StackMaxSize    int        `json:"stackMaxSize"`
+	Tracer          bool       `json:"tracer"`
+	TracerColor     string     `json:"tracerColor"`
+	AmmoType        string     `json:"ammoType"`
+	ProjectileCount int        `json:"projectileCount"`
+	Ballistics      Ballistics `json:"ballistics"`
+}
+
+type Ballistics struct {
+	Damage              int     `json:"damage"`
+	ArmorDamage         int     `json:"armorDamage"`
+	FragmentationChance float64 `json:"fragmentationChance"`
+	RicochetChance      float64 `json:"ricochetChance"`
+	PenetrationChance   float64 `json:"penetrationChance"`
+	PenetrationPower    int     `json:"penetrationPower"`
+	Accuracy            int     `json:"accuracy"`
+	Recoil              int     `json:"recoil"`
+	InitialSpeed        int     `json:"initialSpeed"`
+}
+
 // Configuration to be filled by envconfig
 type Config struct {
 	// JSONBIN_BIN_ID  string
@@ -208,11 +237,11 @@ type Config struct {
 	MONGO_CLUSTER_PATH string
 	MONGO_DB_NAME      string
 
-	TM_API_KEY          string
+	TM_API_KEY string
 
 	TC_API_KEY string
 
-	VERCEL_ENV          string
+	VERCEL_ENV string
 }
 
 const APIKeyHeader = "X-Tarkov-Charts-API-Key"
