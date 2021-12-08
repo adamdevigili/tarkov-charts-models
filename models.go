@@ -5,6 +5,7 @@ import "time"
 type Ammo struct {
 	Caliber     string `json:"caliber"`
 	Name        string `json:"name"`
+	ShortName   string `json:"shortName"`
 	Damage      int    `json:"damage"`
 	Penetration int    `json:"penetration"`
 	Price       int    `json:"price"`
