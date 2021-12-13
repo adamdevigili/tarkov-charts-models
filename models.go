@@ -13,11 +13,12 @@ type Ammo struct {
 
 // ------- tarkov-tools graphQL models -------
 type Item struct {
-	ID          string `json:"id"`
-	Name        string `json:"name"`
-	ShortName   string `json:"shortName"`
-	IconLink    string `json:"iconLink"`
-	Avg24hPrice int    `json:avg24hPrice`
+	ID           string `json:"id"`
+	Name         string `json:"name"`
+	ShortName    string `json:"shortName"`
+	IconLink     string `json:"iconLink"`
+	Avg24hPrice  int    `json:avg24hPrice`
+	LastLowPrice int    `json:lastLowPrice`
 }
 
 type Data struct {
